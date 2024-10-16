@@ -1,12 +1,15 @@
 import type { Activity } from "../types"
 import { categories } from "../data/categories"
 import { useMemo } from "react";
+import { PencilSquareIcon } from '@heroicons/react/24/outline';
+import { ActivityActions } from "../../reducers/activity-reducer";
 
 type ActivityListProps = {
-    activities: Activity[]
+    activities: Activity[],
+    dispatch: React.Dispatch<ActivityActions>
 }
 
-const ActivityList = ({activities} : ActivityListProps)  => {
+const ActivityList = ({activities, dispatch} : ActivityListProps)  => {
     //console.log("Desde componennte ActivityList: ", activities)
     const categoryName = useMemo(() => 
         (category: Activity['category']) => categories.map(cat => cat.id === category ? cat.name : ''), [activities])
@@ -28,8 +31,15 @@ const ActivityList = ({activities} : ActivityListProps)  => {
                         </p>
                     </div>
 
-                    <div className="">
-                        <p></p>
+                    <div className="flex gab-5 items-center">
+                        <button>
+                            <PencilSquareIcon
+                            className="h-8 w-8 text-gray-800"
+                            onClick={() => dispatch({type: "set-activeId", payload: {
+                                id: activity.id   
+                            }})}
+                            />
+                        </button>
                     </div>
                 </div>
             
