@@ -39,6 +39,15 @@ export default {
   plugins: [],
 }
 ```
+## Dependencies for unique ID
+```bash
+npm i uuid
+npm i --save-dev @types/uuid
+```
+### Icons
+```bash
+npm i @heroicons/react
+```
 
 
 # React + TypeScript + Vite
