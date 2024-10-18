@@ -14,6 +14,15 @@ npm create vite@latest
 √ Select a variant: » TypeScript + SWC
 ```
 
+## Screenshots
+
+### Main Screen
+<img src="public/screen.png" alt="main" width="900" height="400">
+
+
+### Add Exercises && Food
+<img src="public/use-screen.png" alt="main" width="900" height="400">
+
 ## Package to use in this project
 
 ```bash
