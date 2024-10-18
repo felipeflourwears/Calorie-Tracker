@@ -17,11 +17,11 @@ npm create vite@latest
 ## Screenshots
 
 ### Main Screen
-<img src="public/screen.png" alt="main" width="900" height="400">
+<img src="public/screen.png" alt="main" width="900" height="600">
 
 
 ### Add Exercises && Food
-<img src="public/use-screen.png" alt="main" width="900" height="400">
+<img src="public/use-screen.png" alt="main" width="900" height="600">
 
 ## Package to use in this project
 
