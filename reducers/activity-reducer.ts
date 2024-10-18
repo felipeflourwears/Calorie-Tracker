@@ -7,7 +7,7 @@ export type ActivityActions =
     { type: 'set-activeId', payload: { id: Activity['id'] } }
 
 
-type ActivityState = {
+export type ActivityState = {
     activities: Activity[],
     activeId: Activity['id']
 }
@@ -20,17 +20,30 @@ export const initialState : ActivityState = {
 }
 
 export const activityReducer = (state: ActivityState = initialState , action: ActivityActions) =>{
+    
     if( action.type === 'save-activity' ){
         // This code manage the logic to update the state
         console.log("Desde el type de save-activity")
         console.log(action.payload.newActivity)
+        let updatedActivities: Activity[] = []
+        if(state.activeId){
+            console.log("Updated Activity")
+            updatedActivities = state.activities.map(activity => activity.id === state.activeId ? action.payload.newActivity : activity)
+        }else{
+            console.log("New Activity")
+            updatedActivities = [...state.activities, action.payload.newActivity] 
+        }
+
+
         return {
             ...state, // mantenemos el estado actual
-            activities: [...state.activities, action.payload.newActivity] // añadimos la nueva actividad
+            activities: updatedActivities, // añadimos la nueva actividad
+            activeId: ''
         };
     }
 
     if(action.type === 'set-activeId'){
+
         console.log("Desde el type de set-activity")
         return{
             ...state,
