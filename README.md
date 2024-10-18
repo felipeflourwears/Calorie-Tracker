@@ -14,6 +14,15 @@ npm create vite@latest
 √ Select a variant: » TypeScript + SWC
 ```
 
+# Site Depoly by Netlify
+
+```bash
+https://jocular-paletas-93a776.netlify.app/
+```
+
+[![Visit Site](https://img.shields.io/badge/Visit-Website-blue?style=for-the-badge)](https://jocular-paletas-93a776.netlify.app/)
+
+
 ## Screenshots
 
 ### Main Screen
