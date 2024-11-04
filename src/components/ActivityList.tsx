@@ -1,23 +1,11 @@
-import type { Activity } from "../types"
-import { categories } from "../data/categories"
-import { useMemo } from "react";
 import { PencilSquareIcon, XCircleIcon } from '@heroicons/react/24/outline';
-import { ActivityActions } from "../../reducers/activity-reducer";
-
-type ActivityListProps = {
-    activities: Activity[],
-    dispatch: React.Dispatch<ActivityActions>
-}
+import { useActivity } from "../hooks/useActivity";
 
 
-
-const ActivityList = ({activities, dispatch} : ActivityListProps)  => {
+const ActivityList = ()  => {
     //console.log("Desde componennte ActivityList: ", activities)
 
-    const isEmptyActivities = useMemo(()=> activities.length === 0 ,[activities])
-
-    const categoryName = useMemo(() => 
-        (category: Activity['category']) => categories.map(cat => cat.id === category ? cat.name : ''), [activities])
+    const { state, dispatch, isEmptyActivities, categoryName } = useActivity()
     
     return (
         <>
@@ -27,7 +15,7 @@ const ActivityList = ({activities, dispatch} : ActivityListProps)  => {
             </h2>
             { isEmptyActivities ? 
                 <p className="text-4xl my-5 font-bold text-slate-600 text-center">There are empty activities...</p> : 
-                activities.map(activity => (
+                state.activities.map(activity => (
                     <div key={activity.id} className="px-5 py-10 bg-white mt-5 flex justify-between shadow">
                         <div className="space-y-2 relative">
                         <p className={`absolute -top-8 -left-8 px-10 py-2 text-white uppercase font-bold ${activity.category === 1 ? 'bg-lime-500' : 'bg-orange-500'}`}>
