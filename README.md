@@ -57,6 +57,13 @@ export default {
   plugins: [],
 }
 ```
+
+For index.ccs add to the next code
+```bash
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 ## Dependencies for unique ID
 ```bash
 npm i uuid
